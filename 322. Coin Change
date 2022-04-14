@@ -1,0 +1,77 @@
+//ITU Racing Embedded Team 2022
+// Leet Code 322 c++ solution 
+//contact <erenel19@itu.edu.tr> 
+
+#include <iostream>
+using namespace std;
+
+	int A,k,t=0;
+	int i,j=0;
+	int coin[100];
+	int temp, kalan;
+	
+int main() {
+	
+	cout << " Amount: ";
+	cin >> A;
+		
+	cout << " Number of banknote variants: ";
+	cin >> i;
+	
+	cout << "\nEnter your coins:  ";
+	
+	for (int j=0; j<i; j++){
+		
+		cin >> coin[j];			
+	}
+	
+    for (int j=0; j<i; j++){
+		
+		cout << coin[j] ;
+		cout<<" ";		
+	}
+	
+	// Sort banknotes from largest to smallest
+	for (int x=0; x<i; x++) {
+		
+    	for(int j=0;j<i;j++) {
+    		
+        	if(coin[x]>coin[j]) {
+            temp=coin[x];
+            coin[x]=coin[j];
+            coin[j]=temp;
+        }
+    }
+}	
+  	
+	// İf amount is entered as 0 from user
+	if( A == 0){
+		
+		cout << 0;		
+	}
+	
+	// Money calculations
+	while (coin[j] < A){
+	
+		k = A / coin[j];
+		A = A - (k*coin[j]);
+		t= t + k;	
+		j++;
+		
+}   
+	// İf the money is just enough
+    if( A == 0 ){
+    	
+    	cout << t; 
+	}
+    
+    // Any combination of the coins
+    else {
+    	
+    	cout << -1 ; 	
+	}
+    	
+    		
+		
+	return 0;
+}
