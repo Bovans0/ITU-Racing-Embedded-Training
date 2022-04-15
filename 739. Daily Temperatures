@@ -1,0 +1,51 @@
+//Author : <Elif Eren> 
+//ITU Racing Embedded Team 2022
+// Leet Code #739 c++ solution 
+//contact <erenel19@itu.edu.tr>
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int i,k;
+	int temperature[100];
+	int j;
+	
+	// The number of days is taken from the user
+	cout << " Number of days: ";
+	cin >> i;
+	
+	// Temperatures are taken from the user
+	for (int j=0; j<i; j++){
+		
+		cin >> temperature[j];	
+	}
+	
+	// The temperatures of the days are printed
+	cout << "temperatures [";
+	for (int j=0; j<i; j++){
+		
+		cout << temperature[j];
+		cout << " "	;			
+	}
+	cout << "] \n";
+	
+	for( int x=0; x<i; x++){
+		
+		for(int y=x+1; y<i; y++){
+			
+			if (temperature [y] > temperature[x]){  // y is future day
+			
+				k  = y - x ; // The number of days to the hotter day is calculated
+				break;
+			}
+			
+		}
+		cout << k;
+		cout << " ";
+		k=0;
+	}
+	
+	return 0;
+}
